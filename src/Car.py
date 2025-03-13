@@ -5,9 +5,12 @@ class Car:
         self.route = route
         self.positie = positie
 
-    # Wat moet dit kunnen?
-    def update(self):
-        return 0
+    def update(self, verkeerslichten, andere_autos):
+        if verkeerslichten[self.positie] == "rood":
+            self.wachttijd += 1  # Auto blijft staan
+        else:
+            if not self.is_obstakel(ander_autos):
+                self.positie += self.snelheid  # Auto beweegt vooruit
 
     # De geplande weg die de auto zal volgen
     # Dit kan een lijst van coordinaten of richtingen zijn
@@ -30,4 +33,5 @@ class Car:
         return 0
 
     # Waar de auto uiteindelijk naartoe moet
-    def bestemming(tuple of string)
+    def bestemming(bestemming):
+        return 0
