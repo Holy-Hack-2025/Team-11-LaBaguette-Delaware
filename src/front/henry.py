@@ -4,7 +4,7 @@ import sys
 pygame.init()
 
 # Load the background image and get its size
-background_image = pygame.image.load("/Users/dlx/Desktop/Hackathon_2025/my_crossroad_map.png")
+background_image = pygame.image.load("./foto_map.png")
 img_width, img_height = background_image.get_rect().size
 
 # Create window using the image dimensions
