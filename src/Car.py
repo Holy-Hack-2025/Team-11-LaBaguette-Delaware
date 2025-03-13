@@ -35,3 +35,19 @@ class Car:
     # Waar de auto uiteindelijk naartoe moet
     def bestemming(bestemming):
         return 0
+    
+    def is_obstakel(self, andere_autos):
+        for auto in andere_autos:
+            if auto.positie == self.positie + 1:
+                return True  # Er staat een auto voor
+        return False
+    
+    def stoppen_bij_rood(self, verkeerslicht):
+        if verkeerslicht == "rood":
+            self.snelheid = 0
+    
+    def veranderen_van_richting(self):
+        if self.route:
+            volgende_richting = self.route.pop(0)  # Haal volgende richting uit route
+            return volgende_richting
+        return "rechtdoor"  # Default gedrag
