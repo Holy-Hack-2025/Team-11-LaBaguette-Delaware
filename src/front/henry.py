@@ -1,6 +1,7 @@
 import pygame
 import sys
 import math
+from constants.py import CAR_SPEED
 
 pygame.init()
 
@@ -18,7 +19,7 @@ screen = pygame.display.set_mode((original_width, original_height), pygame.RESIZ
 pygame.display.set_caption("Crossroad with Map Background")
 
 # Car properties in "original" coordinates.
-car_speed = 2                # Movement speed (per frame in original units)
+car_speed = CAR_SPEED              # Movement speed (per frame in original units)
 car_color = (255, 0, 0)      # Red color
 car_radius = 10              # Radius in original coordinates
 
@@ -45,9 +46,11 @@ class Car:
         if self.stopped:
             self.stop_timer += 1
             if self.stop_timer >= 180:
+                # Nudge the car forward so it leaves the center zone.
+                self.pos[0] += self.speed
                 self.stopped = False
                 self.stop_timer = 0
-            return  # Do not update position while stopped
+            return  # Do not update further while stopped
 
         # If there are still waypoints to follow, move toward the next one.
         if self.current_index < len(self.road):
@@ -100,8 +103,7 @@ while running:
             new_height = int(new_width / aspect_ratio)
             screen = pygame.display.set_mode((new_width, new_height), pygame.RESIZABLE)
             scale_factor = new_width / original_width
-        # For testing, you could add key events here if needed.
-    
+
     # Update the car's position along its road.
     car.update()
 
@@ -119,3 +121,4 @@ while running:
 
 pygame.quit()
 sys.exit()
+
