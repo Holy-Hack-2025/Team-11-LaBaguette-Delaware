@@ -1,7 +1,7 @@
 import pygame
 import sys
 import math
-from constants.py import CAR_SPEED
+#from constants.py import CAR_SPEED
 
 pygame.init()
 
@@ -19,7 +19,7 @@ screen = pygame.display.set_mode((original_width, original_height), pygame.RESIZ
 pygame.display.set_caption("Crossroad with Map Background")
 
 # Car properties in "original" coordinates.
-car_speed = CAR_SPEED              # Movement speed (per frame in original units)
+car_speed = 20              # Movement speed (per frame in original units)
 car_color = (255, 0, 0)      # Red color
 car_radius = 10              # Radius in original coordinates
 
