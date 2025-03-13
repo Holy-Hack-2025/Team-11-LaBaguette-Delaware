@@ -1,53 +1,56 @@
-# Welke inputs en methoden moet dit hebben?
+import constants
+
+
+
 class Car:
 
-    def __init__(self, route, positie=0):
-        self.route = route
-        self.positie = positie
+    def __init__(self, route, reaction_time, is_driving = True, position=0):
+        """"Initiates a car. Will be on one of the routes(Route object from intersection's routes), 
+        and position is its position on this route. Reaction_time is the number of ticks 
+        it takes the car to start.
+        """
+        self.route = route #Route object
+        self.position = position
+        self.reaction_time = reaction_time
+        self.is_driving = is_driving
+        self.waiting_time = 0
+        self.reaction_time_countdown  = 0
+        self.is_done_driving = False
 
-    def update(self, verkeerslichten, andere_autos):
-        if verkeerslichten[self.positie] == "rood":
-            self.wachttijd += 1  # Auto blijft staan
+
+    # Traffic Light State can be "GREEN" or "RED"
+    def update(self):
+        if self.stopped_car_in_front() or self.red_light_ahead(): # if obstacle ahead 
+            self.isdriving = False
         else:
-            if not self.is_obstakel(ander_autos):
-                self.positie += self.snelheid  # Auto beweegt vooruit
-
-    # De geplande weg die de auto zal volgen
-    # Dit kan een lijst van coordinaten of richtingen zijn
-    # bijvoorbeeld ["rechtdoor", "links", "rechts"]
-    # input: list van posities of richtingen
-    def route (richtingen):
-        return 0
-
-    # De huidige positie op de weg, bijvoorbeeld als een coordinaat (x, y)
-    def get_positie():
-        return 0
-
-    # De snelheid waarmee de auto zich voortbeweegt
-    # Dit kan variabel zijn, afhankelijk van verkeerslichten en andere auto's
-    def snelheid(snelheid):
-        return 0
+            if self.isdriving: pass #if car is already driving, do nothing
+            else: # if car was stopped and can start, start a reaction time countdown, and when it reaches self.reaction_time, start the car
+                if self.reaction_time_countdown == self.reaction_time:
+                    self.is_driving = True
+                    self.reaction_time = 0
+                else: 
+                    self.reaction_time_countdown += 1
+        if self.isdriving: #update positie, check als einde van de route bereikt is
+            if self.position + constants.CAR_SPEED > self.route.length:
+                self.is_done_driving = True
+            else: 
+                self.position += constants.CAR_SPEED
     
-    # Hoe lang de auto stilstaat bij een rood licht of verkeersopstopping
-    def wachttijd(tijd):
-        return 0
-
-    # Waar de auto uiteindelijk naartoe moet
-    def bestemming(bestemming):
-        return 0
     
-    def is_obstakel(self, andere_autos):
-        for auto in andere_autos:
-            if auto.positie == self.positie + 1:
-                return True  # Er staat een auto voor
+    def red_light_ahead(self):
+        red_light_position = self.route.trafic_light.position
+        if self.position <= 1.5*constants.CAR_LENGTH:
+            if self.route.trafic_light.state == "RED":
+                return True
+        return False
+         
+    
+    def stopped_car_in_front(self):
+        cars = self.route.cars
+        for car in cars:
+            if car.position != self.position:
+                if car.positie <= self.position + 1.5*constants.CAR_LENGTH:
+                    if not car.is_driving:
+                        return True
         return False
     
-    def stoppen_bij_rood(self, verkeerslicht):
-        if verkeerslicht == "rood":
-            self.snelheid = 0
-    
-    def veranderen_van_richting(self):
-        if self.route:
-            volgende_richting = self.route.pop(0)  # Haal volgende richting uit route
-            return volgende_richting
-        return "rechtdoor"  # Default gedrag
