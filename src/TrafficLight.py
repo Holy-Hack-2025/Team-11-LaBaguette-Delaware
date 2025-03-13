@@ -1,7 +1,7 @@
 import constants
 
 class TrafficLight:
-    def __init__(self, route, position, ticks = constants.DEFAULT_TRAFFIC_LIGHT_DURATION*constants.TICKS_PER_SECOND):
+    def __init__(self, route, position, initial_state = "GREEN", ticks = constants.DEFAULT_TRAFFIC_LIGHT_DURATION*constants.TICKS_PER_SECOND):
         """"Initiates a traffic light. Route determines what route the light is on (Route class), 
         and position is its position on this route. All traffic lights face the 0-side of a route. 
         All lights start the simulation green

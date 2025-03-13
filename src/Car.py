@@ -17,9 +17,10 @@ class Car:
         self.reaction_time_countdown  = 0
         self.is_done_driving = False
 
+
     # Traffic Light State can be "GREEN" or "RED"
-    def update(self, traffic_light_state, andere_autos):
-        if stopped_car_in_front() or red_light_ahead(): # if obstacle ahead 
+    def update(self):
+        if self.stopped_car_in_front() or self.red_light_ahead(): # if obstacle ahead 
             self.isdriving = False
         else:
             if self.isdriving: pass #if car is already driving, do nothing
@@ -35,21 +36,21 @@ class Car:
             else: 
                 self.position += constants.CAR_SPEED
     
+    
     def red_light_ahead(self):
         red_light_position = self.route.trafic_light.position
         if self.position <= 1.5*constants.CAR_LENGTH:
             if self.route.trafic_light.state == "RED":
                 return True
         return False
-        
-    
-    
+         
     
     def stopped_car_in_front(self):
         cars = self.route.cars
         for car in cars:
             if car.position != self.position:
-                if car.positie <= self.position + 1.5*CAR_LENGTH:
+                if car.positie <= self.position + 1.5*constants.CAR_LENGTH:
                     if not car.is_driving:
                         return True
         return False
+    
