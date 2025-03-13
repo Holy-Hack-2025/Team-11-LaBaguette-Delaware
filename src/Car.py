@@ -1,4 +1,4 @@
-import constants.py
+import constants
 
 
 
@@ -30,14 +30,14 @@ class Car:
                 else: 
                     self.reaction_time_countdown += 1
         if self.isdriving: #update positie, check als einde van de route bereikt is
-            if self.position + CAR_SPEED > self.route.length:
+            if self.position + constants.CAR_SPEED > self.route.length:
                 self.is_done_driving = True
             else: 
-                self.position += CAR_SPEED
+                self.position += constants.CAR_SPEED
     
     def red_light_ahead(self):
         red_light_position = self.route.trafic_light.position
-        if self.position <= 1.5*CAR_LENGTH:
+        if self.position <= 1.5*constants.CAR_LENGTH:
             if self.route.trafic_light.state == "RED":
                 return True
         return False
