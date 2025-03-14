@@ -349,7 +349,7 @@ traffic_lights_sim1 = [
 
 car_fields_sim1 = [
     {"spawn_time": 0.5, "path": path1_data, "traffic_light": traffic_lights_sim1[0]},
-    {"spawn_time": 0.5, "path": path2_data, "traffic_light": traffic_lights_sim1[0]},
+    {"spawn_time": 1.5, "path": path2_data, "traffic_light": traffic_lights_sim1[0]},
     {"spawn_time": 3, "path": path3_data, "traffic_light": traffic_lights_sim1[1]},
     {"spawn_time": 3, "path": path4_data, "traffic_light": traffic_lights_sim1[1]},
     {"spawn_time": 3.5, "path": path5_data, "traffic_light": traffic_lights_sim1[2]},
@@ -390,8 +390,99 @@ car_fields_sim3 = [
 # run_simulation(sim1)
 
 
-# sim2 = Simulation(traffic_lights_sim2,car_fields_sim2,1,2)
-# run_simulation(sim2)
+# # sim2 = Simulation(traffic_lights_sim2,car_fields_sim2,1,2)
+# # run_simulation(sim2)
 
-sim3 = Simulation(traffic_lights_sim3,car_fields_sim3,1,2)
-run_simulation(sim3)
+# # sim3 = Simulation(traffic_lights_sim3,car_fields_sim3,1,2)
+# # run_simulation(sim3)
+
+##################################################################################################
+
+
+                                # BUTTON MENU
+
+
+##################################################################################################
+# Initialize Pygame
+pygame.init()
+
+# Screen settings
+WIDTH, HEIGHT = 800, 600
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Traffic Simulation Selector")
+
+# Colors
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+GRAY = (100, 100, 100)
+BLUE = (0, 120, 215)
+
+# Font
+font = pygame.font.Font(None, 40)
+
+# Button properties
+button_width = 300
+button_height = 60
+button_x = (WIDTH - button_width) // 2  # Centered horizontally
+button_y_start = 200  # First button Y position
+button_spacing = 80  # Space between buttons
+
+# Create button rectangles
+buttons = [
+    pygame.Rect(button_x, button_y_start, button_width, button_height),
+    pygame.Rect(button_x, button_y_start + button_spacing, button_width, button_height),
+    pygame.Rect(button_x, button_y_start + 2 * button_spacing, button_width, button_height),
+]
+
+# Button labels
+button_labels = ["Simulation 1", "Simulation 2", "Simulation 3"]
+
+# Define simulations
+simulations = [
+    Simulation(traffic_lights_sim1, car_fields_sim1, 1, 2),
+    Simulation(traffic_lights_sim2, car_fields_sim2, 1, 2),
+    Simulation(traffic_lights_sim3, car_fields_sim3, 1, 2),
+]
+
+
+def draw_menu():
+    """Draw the menu screen."""
+    screen.fill(WHITE)  # Clear screen
+
+    for i, button in enumerate(buttons):
+        pygame.draw.rect(screen, BLUE, button, border_radius=10)
+        text = font.render(button_labels[i], True, WHITE)
+        text_rect = text.get_rect(center=button.center)
+        screen.blit(text, text_rect)
+
+    pygame.display.flip()  # Update display
+
+
+def menu_loop():
+    """Menu loop to select a simulation."""
+    running = True
+    while running:
+        draw_menu()
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                return None  # Exit Pygame
+
+            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:  # Left-click
+                for i, button in enumerate(buttons):
+                    if button.collidepoint(event.pos):
+                        return simulations[i]  # Return the selected simulation
+
+    return None
+
+
+# Main program
+while True:
+    selected_simulation = menu_loop()  # Show the menu and get the selected simulation
+    if selected_simulation:
+        run_simulation(selected_simulation)  # Run the chosen simulation
+    else:
+        break  # Exit if the user closes the menu
+
+pygame.quit()
