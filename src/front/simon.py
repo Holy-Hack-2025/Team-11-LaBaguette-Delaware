@@ -42,8 +42,8 @@ YELLOW = (255, 255, 0)        # Special lane (e.g., bus lane)
 RED = (255, 0, 0)             # Lane with stop signs
 GREEN = (0, 255, 0)           # Lane for pedestrian crossings
 BLUE = (0, 0, 255)            # Lane for emergency vehicles
-DARK_GRAY = (169, 169, 169)   # Lane for toll booths or other purposes
-
+BLACK = (0, 0, 0)  # Standard black color
+ROSE_FUCHSIA = (255, 0, 127)  # A vibrant pinkish-purple color
 
 lane_width = 3  # Width of the lane lines
 
@@ -52,9 +52,20 @@ lane_width = 3  # Width of the lane lines
 with open('path_data.json', 'r') as f:
     path1_data = json.load(f)
 
+with open('path3.json', 'r') as f:
+    path3_data = json.load(f)
+
 with open('path2.json', 'r') as f:
     path2_data = json.load(f)
 
+with open('path4.json', 'r') as f:
+    path4_data = json.load(f)
+
+
+with open('path5.json', 'r') as f:
+    path5_data = json.load(f)
+with open('path6.json', 'r') as f:
+    path6_data = json.load(f)
 
 
 # Define a function to draw the path
@@ -87,7 +98,11 @@ while running:
     # pygame.draw.line(screen, GREEN, (crop_width // 2, 0), (crop_width // 2, crop_height), lane_width)
 
     draw_path(path1_data,RED)
-    draw_path(path2_data,GREEN)
+    draw_path(path2_data,BLUE)
+    draw_path(path3_data,YELLOW)
+    draw_path(path4_data,GREEN)
+    draw_path(path5_data,BLACK)
+    draw_path(path6_data,ROSE_FUCHSIA)
 
     # Update the screen
     pygame.display.flip()
