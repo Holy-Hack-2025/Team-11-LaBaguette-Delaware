@@ -1,7 +1,7 @@
 from svgpathtools import svg2paths
 import json
 
-file_name = "light_c"  # Keep this as a filename
+file_name = "path2"  # Keep this as a filename
 
 # Load the SVG paths
 paths, attributes = svg2paths(f'{file_name}.svg')  # Load the SVG file

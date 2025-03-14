@@ -233,8 +233,8 @@ class TrafficLight:
 
 # Create traffic lights for each path's end (for example, at the end of path1_data)
 traffic_lights = [TrafficLight(light_c, green_duration=0.7, red_duration=5),
-                    TrafficLight(light_ab, green_duration=0, red_duration=100),
-                    TrafficLight(light_d, green_duration=0, red_duration=5),]
+                    TrafficLight(light_ab, green_duration=1, red_duration=100),
+                    TrafficLight(light_d, green_duration=0, red_duration=100),]
 
 
 
@@ -245,7 +245,16 @@ def generate_cars(number_of_cars,path,traffic_light,time):
         cars.append(Car(path,i,traffic_light,RED,speed=2))
     return cars
 
-cars_path1 = generate_cars(10,path1_data,traffic_lights[0],1)
+cars_path1 = generate_cars(20,path1_data,traffic_lights[0],1)
+cars_path2 = generate_cars(10,path2_data,traffic_lights[0],1)
+cars_path3 = generate_cars(5,path3_data,traffic_lights[1],1)
+cars_path4 = generate_cars(5,path4_data,traffic_lights[1],1)
+cars_path5 = generate_cars(4,path5_data,traffic_lights[2],1)
+cars_path6 = generate_cars(4,path6_data,traffic_lights[2],1)
+
+
+
+cars_paths = [cars_path1,cars_path2,cars_path3,cars_path4,cars_path5,cars_path6]
 
 # cars.append(Car(path1_data,1,traffic_lights[0], RED, speed=2,))
 # # cars.append(Car(path2_data,traffic_lights[0], RED, speed=2))
@@ -282,9 +291,13 @@ while running:
         traffic_light.update(delta_time)
         traffic_light.draw(screen)
     # Update and draw the car
-    for car in cars_path1:
-        car.update_position(cars_path1)
-        car.draw(screen)
+
+    for cars_path in cars_paths:
+        for car in cars_path:
+            car.update_position(cars_path)
+            car.draw(screen)
+
+
 
     pygame.display.flip()
 
