@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg9"
+   width="982"
+   height="661"
+   viewBox="0 0 982 661"
+   sodipodi:docname="foto_map.png"
+   inkscape:export-filename="path6.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs13">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect2387"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview11"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="0.97579425"
+     inkscape:cx="470.38605"
+     inkscape:cy="330.5"
+     inkscape:window-width="1440"
+     inkscape:window-height="890"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g15" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g15">
+    <path
+       style="fill:none;stroke:#ff0000"
+       d="m 445.7907,704.04186 c 2.73279,-91.54838 5.4656,-183.09774 6.83203,-239.80389 1.36642,-56.70614 1.36642,-77.88503 1.53508,-102.13908 0.16867,-24.25406 0.51453,-51.92322 0.85613,-75.66477 0.3416,-23.74155 0.6832,-43.89567 1.3664,-67.12488 0.68321,-23.22922 1.708,-49.53205 3.58683,-92.91612 1.87884,-43.384074 4.6116,-103.846431 7.34446,-164.310949"
+       id="path2385"
+       inkscape:path-effect="#path-effect2387"
+       inkscape:original-d="m 445.7907,704.04186 c 2.73381,-91.54835 5.46663,-183.09771 8.19845,-274.64806 0.001,-21.86197 0.001,-43.04086 0,-64.56279 0.34261,-26.98611 0.6842,-54.65533 1.0248,-81.9845 0.34261,-20.15392 0.68421,-40.30804 1.02481,-60.46356 1.02583,-26.30289 2.05061,-52.60572 3.07442,-78.91008 2.73387,-60.463777 5.46663,-120.926134 8.19845,-181.390699" />
+  </g>
+</svg>
