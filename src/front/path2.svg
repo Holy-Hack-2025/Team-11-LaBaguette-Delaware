@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg9"
+   width="982"
+   height="661"
+   viewBox="0 0 982 661"
+   sodipodi:docname="foto_map.png"
+   inkscape:export-filename="path1.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs13">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect1441"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview11"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="0.97579425"
+     inkscape:cx="470.38605"
+     inkscape:cy="330.5"
+     inkscape:window-width="1440"
+     inkscape:window-height="890"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g15" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g15">
+    <path
+       style="fill:none;stroke:#008000"
+       d="m 451.93953,-10.248062 c -4.09927,92.916716 -8.19849,185.832472 -10.07727,246.637962 -1.87878,60.80548 -1.53718,89.49948 -1.19557,109.65413 0.34162,20.15465 0.68321,31.76889 -0.3375,86.59707 -1.02071,54.82819 -3.42017,153.54903 -5.81136,251.92944"
+       id="path1439"
+       inkscape:path-effect="#path-effect1441"
+       inkscape:original-d="m 451.93953,-10.248062 c -4.09822,92.916762 -8.19744,185.832522 -12.29767,278.747282 0.34261,28.69615 0.6842,57.39015 1.02481,86.08373 0.34261,11.6157 0.6842,23.22994 1.0248,34.84341 -2.39026,98.04275 -4.78143,196.76379 -7.17364,295.14418" />
+  </g>
+</svg>
