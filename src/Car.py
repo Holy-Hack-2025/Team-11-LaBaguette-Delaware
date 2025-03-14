@@ -37,7 +37,7 @@ class Car:
                 self.position += constants.CAR_SPEED
  
      
-     def red_light_ahead(self):
+    def red_light_ahead(self):
         red_light_position = self.route.trafic_light.position
         if self.position <= 1.5*constants.CAR_LENGTH:
             if self.route.trafic_light.state == "RED":
@@ -45,7 +45,7 @@ class Car:
         return False
             
  
-     def stopped_car_in_front(self):
+    def stopped_car_in_front(self):
         cars = self.route.cars
         for car in cars:
             if car.position != self.position:
