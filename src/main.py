@@ -1,0 +1,3 @@
+import Intersection
+
+intersection = Intersection()
