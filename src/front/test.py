@@ -1,6 +1,5 @@
 import pygame
-import json
-import sys
+
 
 # Initialize Pygame
 pygame.init()
@@ -9,9 +8,6 @@ pygame.init()
 screen = pygame.display.set_mode((800, 600))
 pygame.display.set_caption("SVG Path Display")
 
-# Load the path data from the JSON file
-with open('path_data.json', 'r') as f:
-    path_data = json.load(f)
 
 # Define a function to draw the path
 def draw_path(path_data):

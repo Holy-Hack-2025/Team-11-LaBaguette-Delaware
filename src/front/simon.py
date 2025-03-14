@@ -50,14 +50,19 @@ lane_width = 3  # Width of the lane lines
 
 # Load the path data from the JSON file
 with open('path_data.json', 'r') as f:
-    path_data = json.load(f)
+    path1_data = json.load(f)
+
+with open('path2.json', 'r') as f:
+    path2_data = json.load(f)
+
+
 
 # Define a function to draw the path
-def draw_path(path_data):
+def draw_path(path_data,color):
     for segment in path_data:
         start = segment['start']
         end = segment['end']
-        pygame.draw.line(screen, (255, 0, 0), (start['x'], start['y']), (end['x'], end['y']), 2)
+        pygame.draw.line(screen, color, (start['x'], start['y']), (end['x'], end['y']), 2)
 
 
 # Main loop
@@ -75,11 +80,14 @@ while running:
     screen.blit(scaled_image,image_rect)
 
     # Draw horizontal lanes
-    pygame.draw.line(screen, BLUE, (0, crop_height // 3), (crop_width, crop_height // 3), lane_width)
-    pygame.draw.line(screen, RED, (0, 2 * crop_height // 3), (crop_width, 2 * crop_height // 3), lane_width)
+    # pygame.draw.line(screen, BLUE, (0, crop_height // 3), (crop_width, crop_height // 3), lane_width)
+    # pygame.draw.line(screen, RED, (0, 2 * crop_height // 3), (crop_width, 2 * crop_height // 3), lane_width)
 
-    # Draw vertical lanes (for example, dividing the screen into two sections)
-    pygame.draw.line(screen, GREEN, (crop_width // 2, 0), (crop_width // 2, crop_height), lane_width)
+    # # Draw vertical lanes (for example, dividing the screen into two sections)
+    # pygame.draw.line(screen, GREEN, (crop_width // 2, 0), (crop_width // 2, crop_height), lane_width)
+
+    draw_path(path1_data,RED)
+    draw_path(path2_data,GREEN)
 
     # Update the screen
     pygame.display.flip()
